@@ -6,16 +6,17 @@ import matplotlib.pyplot as plt
 from matplotlib import animation
 
 
-L = 32.0				#linear size
-rho = 3.0				#particle density
-N =	int(rho*L**2)		#total number of Particles
+L = 25.0				#linear size
+N =	500					#total number of Particles
+rho = N / L **2			#particle density
+
 
 r0 = 1.0				#interaction Range
 deltat = 1.0 			#time steps
 factor =0.5			
 v0 = r0/deltat*factor	#intial velocity
 iterations = 10000		#total time steps
-eta = 0.15				#delta correlation of white noise
+eta = 0.1				#delta correlation of white noise
 
 print(" Number of Particles: ",N)
 print("Delta correlation of white noise: ",eta)
@@ -37,7 +38,7 @@ def init():
     return qv,
 
 def animate(i):
-	print(i)
+	#print(i)
 
 	global orient
 	tree = cKDTree(pos,boxsize=[L,L])
@@ -67,5 +68,5 @@ def animate(i):
 
 #FuncAnimation(fig,animate,np.arange(1, 200),interval=1, blit=True)
 anim = animation.FuncAnimation(fig, animate, init_func=init,
-                               frames=iterations, interval=1, blit=True)
+                               frames=iterations, interval=10, blit=True,repeat=False)
 plt.show()
