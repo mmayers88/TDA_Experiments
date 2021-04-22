@@ -1,5 +1,0 @@
-{
-    "python.linting.enabled": true,
-    "python.pythonPath": "/Users/ghoci/miniforge3_x86_64/envs/base_x86/bin/python",
-    "terminal.integrated.shellArgs.windows": "conda activate base_x86"
-}
